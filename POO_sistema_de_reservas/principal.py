@@ -32,6 +32,7 @@ def main():
                         cedula,nombre,correo,celular=pedirDatosUsuario()
                         user=Usuario(cedula,nombre,correo,celular)
                         usuarios.append(user)
+                        print("Usuario creado con los siguientes datos: ")
                         print(usuarios[len(usuarios)-1])    
                     except ValueError:
                         print("Dato invalido")
@@ -40,17 +41,12 @@ def main():
                     
                 elif opcion_2 == "2": # Consultar usuario
                     try:
-                        cedula_existe=False
                         id_consulta=int(input("Ingrese la Cédula del Usuario a consultar "))
-                        for usuario in usuarios:
-                            x=usuario.get_cedula()
-                            if id_consulta==x:
-                                print("")
-                                print(usuario)
-                                cedula_existe=True
-                                break
-                        if cedula_existe==False:
-                            print("El usuario no existe ")
+                        found,usuario=autenticarUsuario(id_consulta,usuarios)
+                        if found:
+                            print(usuario)
+                        else:
+                            print("El usuario no se encuentra en sistema ")
                     except ValueError:
                         print("Dato invalido")
                     except NameError:
