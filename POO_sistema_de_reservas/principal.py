@@ -59,30 +59,27 @@ def main():
                     
                     if opcion_consulta=="1":
                         # Actualizar cédula
-                        id_consulta=int(input("Ingrese la Cédula del Usuario a Actualizar "))
-                        for usuario in usuarios:
-                            x=usuario.get_cedula()
-                            if id_consulta==x:
-                                print("")
-                                print(usuario)
-                                print("********-   -********")
-                                usuario_valido=True 
-                                break
-                                
-                        if usuario_valido==True:
-                            dato=int(input("Ingrese la nueva cedula "))
-                            for usuario in usuarios:
-                                x=usuario.get_cedula()
-                                if id_consulta==x:
-                                    usuario.set_cedula(dato)
-                                    print("")
-                                    print(usuario)  
-                                    print("********-   -********")
-                                    break               
-                        else:
-                            print("No se encontraron resultados ")
-                            print("********-   -********")
-                
+                        try:
+                            id_actualizar=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion=consultarUsuario(id_actualizar,usuarios)
+                            if actualizacion==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion)
+                                print("********-  -********")
+                                dato=int(input("Ingrese la nueva cedula "))
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar==x:
+                                        usuario.set_cedula(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")
+                                                    
                     elif opcion_consulta=="2": # Actualizar nombre
                         pass        
                     elif opcion_consulta=="3": # Actualizar correo
@@ -101,9 +98,7 @@ def main():
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
-        elif opcion=="2":
-            # Módulo de reservas
-            while True:
+        elif opcion=="2": # Módulo de reservas
                 mostrarMenuDeReservas()
                 print("")
                 opcion_3 = (input("Ingrese la opción deseada "))
@@ -122,9 +117,7 @@ def main():
                 else:
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
-        elif opcion=="3":
-            # Módulo de localidad
-            while True:
+        elif opcion=="3": # Módulo de localidad            
                 mostrarMenuDeLocalidad()
                 print("")
                 opcion_4 = (input("Ingrese la opción deseada "))
@@ -144,7 +137,7 @@ def main():
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
         else: # Else del menú principal
-            print("Opción invalida. !Ingresa tu elección¡ ")
+            print("Opción invalida. !Has salido¡ ")
             break
 
 if __name__== "__main__":
