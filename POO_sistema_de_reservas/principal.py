@@ -41,12 +41,12 @@ def main():
                     
                 elif opcion_2 == "2": # Consultar usuario
                     try:
-                        id_consulta=int(input("Ingrese la Cédula del Usuario a consultar "))
-                        found,usuario=autenticarUsuario(id_consulta,usuarios)
-                        if found:
-                            print(usuario)
+                        id_consulta=int(input("Ingrese la Cédula del Usuario a Consultar "))
+                        consulta=consultarUsuario(id_consulta,usuarios)
+                        if consulta==None:
+                            print("Usuario no encontrado")
                         else:
-                            print("El usuario no se encuentra en sistema ")
+                            print(consulta)
                     except ValueError:
                         print("Dato invalido")
                     except NameError:
