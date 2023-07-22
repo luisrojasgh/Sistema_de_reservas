@@ -98,9 +98,7 @@ def main():
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
-        elif opcion=="2":
-            # Módulo de reservas
-            while True:
+        elif opcion=="2": # Módulo de reservas
                 mostrarMenuDeReservas()
                 print("")
                 opcion_3 = (input("Ingrese la opción deseada "))
@@ -119,9 +117,7 @@ def main():
                 else:
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
-        elif opcion=="3":
-            # Módulo de localidad
-            while True:
+        elif opcion=="3": # Módulo de localidad            
                 mostrarMenuDeLocalidad()
                 print("")
                 opcion_4 = (input("Ingrese la opción deseada "))
