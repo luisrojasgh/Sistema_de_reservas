@@ -53,6 +53,13 @@ def pedirDatosUsuario():
 
   return cedula, nombre, correo, celular    
 
+def consultarUsuario(cedula,lista):
+  for usuario in lista:
+    item=usuario.get_cedula()
+    if item==cedula:
+      dato_salida_true=usuario
+      return dato_salida_true
+
 def mostrarMenuDeReservas():
     print("****************-Menú-*********************")
     print("")
