@@ -54,6 +54,18 @@ def pedirDatosUsuario():
   return cedula, nombre, correo, celular    
 
 def consultarUsuario(cedula,lista):
+  """
+  La Función permite consultar y verificar si un usuario tipo (Objeto) se encuentra
+  en una lista que se le pasa como parametro. En caso de encontrar al usuario, la 
+  Función retórna el usuario. 
+
+  Parametros:
+
+  cedula (int)
+  lista (list)
+
+  Se retórna el Objeto (usuario)
+  """
   for usuario in lista:
     item=usuario.get_cedula()
     if item==cedula:

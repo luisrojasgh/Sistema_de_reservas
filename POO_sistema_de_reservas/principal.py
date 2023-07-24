@@ -24,7 +24,7 @@ def main():
                 opcion_2 = (input("Ingrese la opción deseada "))
 
                 if opcion_2 == "0": 
-                    print("Haz salido del menú de Usuario. ")
+                    print("Haz salido del Sistema. ")
                     break
 
                 elif opcion_2 == "1": # Crear usuario
@@ -102,7 +102,26 @@ def main():
                         except NameError:
                             print("¡Error!")        
                     elif opcion_consulta=="3": # Actualizar correo
-                        pass
+                        try:
+                            id_actualizar_correo=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion_correo=consultarUsuario(id_actualizar_correo,usuarios)
+                            if actualizacion_correo==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion_correo)
+                                print("********-  -********")
+                                dato=input("Ingrese el nuevo correo ")
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar_correo==x:
+                                        usuario.set_correo(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")
                     elif opcion_consulta=="4": # Actualizar celular
                         pass
                     elif opcion_consulta=="0": # Sale del módulo de actualizar datos de usuario
