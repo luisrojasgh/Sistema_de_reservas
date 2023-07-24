@@ -81,7 +81,26 @@ def main():
                             print("¡Error!")
                                                     
                     elif opcion_consulta=="2": # Actualizar nombre
-                        pass        
+                        try:
+                            id_actualizar_nombre=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion_nombre=consultarUsuario(id_actualizar_nombre,usuarios)
+                            if actualizacion_nombre==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion_nombre)
+                                print("********-  -********")
+                                dato=input("Ingrese el nuevo Nombre ")
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar_nombre==x:
+                                        usuario.set_nombre(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")        
                     elif opcion_consulta=="3": # Actualizar correo
                         pass
                     elif opcion_consulta=="4": # Actualizar celular
