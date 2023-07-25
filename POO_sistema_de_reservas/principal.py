@@ -123,7 +123,26 @@ def main():
                         except NameError:
                             print("¡Error!")
                     elif opcion_consulta=="4": # Actualizar celular
-                        pass
+                        try:
+                            id_actualizar_celular=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion_celular=consultarUsuario(id_actualizar_celular,usuarios)
+                            if actualizacion_celular==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion_celular)
+                                print("********-  -********")
+                                dato=int(input("Ingrese el nuevo número de Celular "))
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar_celular==x:
+                                        usuario.set_celular(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")
                     elif opcion_consulta=="0": # Sale del módulo de actualizar datos de usuario
                         print("Haz salido del menú . ")
                         break
