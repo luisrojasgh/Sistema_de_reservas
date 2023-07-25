@@ -7,8 +7,7 @@ print("")
 def main():
     usuarios=[]
    
-    while True:
-        # menú principal
+    while True: # menú principal
         mostrarMenu()
         print("")
         opcion = (input("Ingrese la opción deseada "))
@@ -17,8 +16,7 @@ def main():
             print("Gracias por usar el Sistema de reservas. !Hasta luego¡ ")
             print("")
             break
-        elif opcion=="1":
-                # módulo de usuario
+        elif opcion == "1": # módulo de usuario
                 mostrarMenuDeUsuario()
                 print("")
                 opcion_2 = (input("Ingrese la opción deseada "))
@@ -52,8 +50,7 @@ def main():
                     except NameError:
                         print("¡Error!")
                             
-                elif opcion_2 == "3":
-                    # Actualizar datos de usuario
+                elif opcion_2 == "3": # Actualizar datos de usuario
                     mostrarMenuActualizacionUsuario()
                     opcion_consulta=input("Ingrese la opción que representa el item a Actualizar ")
                     
@@ -149,8 +146,8 @@ def main():
                     else: # Else del módulo de actualizar datos de usuario
                         print("Opción invalida.")
                         break
-                # Eliminar usuario
-                elif opcion_2 == "4":
+               
+                elif opcion_2 == "4":  # Eliminar usuario
                     pass
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
