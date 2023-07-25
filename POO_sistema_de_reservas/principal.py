@@ -131,7 +131,7 @@ def main():
                             else:
                                 print(actualizacion_celular)
                                 print("********-  -********")
-                                dato=int(input("Ingrese el nuevo número de Celular "))
+                                dato=input("Ingrese el nuevo número de Celular ")
                                 for usuario in usuarios:
                                     x=usuario.get_cedula()
                                     if id_actualizar_celular==x:
