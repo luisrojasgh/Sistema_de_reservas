@@ -148,7 +148,31 @@ def main():
                         break
                
                 elif opcion_2 == "4":  # Eliminar usuario
-                    pass
+                    try:
+                        id_eliminar=int(input("Ingrese la Cédula del Usuario a eliminar "))
+                        eliminacion=consultarUsuario(id_eliminar,usuarios)
+                        if eliminacion==None:
+                            print("Usuario a eliminar no encontrado")
+                        else:
+                            print(eliminacion)
+                            print("********-  -********")
+                            dato=input("Desea proceder a la eliminación S/N ")
+                            dato.upper()
+                            if dato == "S" or dato == "s":
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_eliminar==x:
+                                        del(usuario)
+                                        #eliminado=usuarios.pop(usuario)
+                                        print("Se eliminó el Usuario: ")
+                                        print("********-  -********")  
+                                print(usuarios)
+                            else:
+                                break
+                    except ValueError:
+                        print("Dato invalido")
+                    except NameError:
+                        print("¡Error!")
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break
