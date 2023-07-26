@@ -157,16 +157,15 @@ def main():
                             print(eliminacion)
                             print("********-  -********")
                             dato=input("Desea proceder a la eliminación S/N ")
-                            dato.upper()
+                            
                             if dato == "S" or dato == "s":
                                 for usuario in usuarios:
                                     x=usuario.get_cedula()
                                     if id_eliminar==x:
-                                        del(usuario)
+                                        usuarios.remove(usuario)
                                         #eliminado=usuarios.pop(usuario)
-                                        print("Se eliminó el Usuario: ")
+                                        print("Se eliminó el Usuario ")
                                         print("********-  -********")  
-                                print(usuarios)
                             else:
                                 break
                     except ValueError:
