@@ -7,8 +7,7 @@ print("")
 def main():
     usuarios=[]
    
-    while True:
-        # menú principal
+    while True: # menú principal
         mostrarMenu()
         print("")
         opcion = (input("Ingrese la opción deseada "))
@@ -17,8 +16,7 @@ def main():
             print("Gracias por usar el Sistema de reservas. !Hasta luego¡ ")
             print("")
             break
-        elif opcion=="1":
-                # módulo de usuario
+        elif opcion == "1": # módulo de usuario
                 mostrarMenuDeUsuario()
                 print("")
                 opcion_2 = (input("Ingrese la opción deseada "))
@@ -52,8 +50,7 @@ def main():
                     except NameError:
                         print("¡Error!")
                             
-                elif opcion_2 == "3":
-                    # Actualizar datos de usuario
+                elif opcion_2 == "3": # Actualizar datos de usuario
                     mostrarMenuActualizacionUsuario()
                     opcion_consulta=input("Ingrese la opción que representa el item a Actualizar ")
                     
@@ -123,16 +120,58 @@ def main():
                         except NameError:
                             print("¡Error!")
                     elif opcion_consulta=="4": # Actualizar celular
-                        pass
+                        try:
+                            id_actualizar_celular=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion_celular=consultarUsuario(id_actualizar_celular,usuarios)
+                            if actualizacion_celular==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion_celular)
+                                print("********-  -********")
+                                dato=input("Ingrese el nuevo número de Celular ")
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar_celular==x:
+                                        usuario.set_celular(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")
                     elif opcion_consulta=="0": # Sale del módulo de actualizar datos de usuario
                         print("Haz salido del menú . ")
                         break
                     else: # Else del módulo de actualizar datos de usuario
                         print("Opción invalida.")
                         break
-                # Eliminar usuario
-                elif opcion_2 == "4":
-                    pass
+               
+                elif opcion_2 == "4":  # Eliminar usuario
+                    try:
+                        id_eliminar=int(input("Ingrese la Cédula del Usuario a eliminar "))
+                        eliminacion=consultarUsuario(id_eliminar,usuarios)
+                        if eliminacion==None:
+                            print("Usuario a eliminar no encontrado")
+                        else:
+                            print(eliminacion)
+                            print("********-  -********")
+                            dato=input("Desea proceder a la eliminación S/N ")
+                            
+                            if dato == "S" or dato == "s":
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_eliminar==x:
+                                        usuarios.remove(usuario)
+                                        #eliminado=usuarios.pop(usuario)
+                                        print("Se eliminó el Usuario ")
+                                        print("********-  -********")  
+                            else:
+                                break
+                    except ValueError:
+                        print("Dato invalido")
+                    except NameError:
+                        print("¡Error!")
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break

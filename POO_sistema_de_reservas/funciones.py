@@ -42,14 +42,14 @@ def pedirDatosUsuario():
   cedula (int)
   nombre (str)
   correo (str)
-  celular (int)
+  celular (str)
 
   Se retornan los datos ingresados.
   """
   cedula=int(input("Ingrese la cedula "))
   nombre=input("Ingrese el nombre ")
   correo=input("Ingrese el correo ")
-  celular=int(input("Ingrese el celular "))
+  celular=input("Ingrese el celular ")
 
   return cedula, nombre, correo, celular    
 
