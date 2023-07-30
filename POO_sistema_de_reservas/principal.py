@@ -140,13 +140,36 @@ def main():
                             print("Dato invalido")
                         except NameError:
                             print("¡Error!")
+                    
+                    elif opcion_consulta=="5": # Actualizar Estado
+                        try:
+                            id_actualizar_estado=int(input("Ingrese la Cédula del Usuario a Actualizar "))
+                            actualizacion_estado=consultarUsuario(id_actualizar_estado,usuarios)
+                            if actualizacion_estado==None:
+                                print("Usuario a Actualizar no encontrado")
+                            else:
+                                print(actualizacion_estado)
+                                print("********-  -********")
+                                dato=int(input("Ingrese el nuevo estado: 1: Activo , 2: Inactivo "))
+                                for usuario in usuarios:
+                                    x=usuario.get_cedula()
+                                    if id_actualizar_estado==x:
+                                        usuario.set_estado(dato)
+                                        print("")
+                                        print(usuario)  
+                                        print("********- Dato de usuario Actualizado Exitosamente -********")
+                        except ValueError:
+                            print("Dato invalido")
+                        except NameError:
+                            print("¡Error!")
+
                     elif opcion_consulta=="0": # Sale del módulo de actualizar datos de usuario
                         print("Haz salido del menú . ")
                         break
                     else: # Else del módulo de actualizar datos de usuario
                         print("Opción invalida.")
                         break
-               
+
                 elif opcion_2 == "4":  # Eliminar usuario
                     try:
                         id_eliminar=int(input("Ingrese la Cédula del Usuario a eliminar "))
@@ -172,6 +195,23 @@ def main():
                         print("Dato invalido")
                     except NameError:
                         print("¡Error!")
+                
+                elif opcion_2 == "5": # Listar Usuarios Activos
+                    print("********- Usuarios Activos  -********")
+                    print("")
+                    for usuario in usuarios:
+                        estado_usuario = usuario.get_estado()
+                        if estado_usuario == 1:
+                            print(usuario, "\n")
+                    print("********-  -********")
+
+                elif opcion_2 == "6": # Listar Todos los Usuarios
+                    print("********- Todos los Usuarios  -********")
+                    print("")
+                    for usuario in usuarios:
+                        print(usuario, "\n")
+                    print("********-  -********")
+
                 else: # Else del módulo de usuario
                     print("Opción invalida. !Ingresa otra opción¡ ")
                     break

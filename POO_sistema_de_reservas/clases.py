@@ -1,9 +1,10 @@
 class Usuario:
-    def __init__(self, cedula,nombre,correo,celular) -> None:
+    def __init__(self, cedula,nombre,correo,celular,estado=1) -> None:
         self._cedula=cedula
         self._nombre=nombre
         self._correo=correo
         self._celular=celular
+        self._estado=estado
     
     def get_cedula(self):
         return self._cedula
@@ -29,9 +30,15 @@ class Usuario:
     def set_celular(self, celular):
         self._celular = celular
     
+    def get_estado(self):
+        return self._estado
+      
+    def set_estado(self, estado):
+        self._estado = estado
+    
     def __str__(self) -> str:
-        texto="Cedula: {0} - Nombre: {1} - Correo: {2} - Celular: {3}"
-        return texto.format(self._cedula,self._nombre,self._correo,self._celular)
+        texto="Cedula: {0} - Nombre: {1} - Correo: {2} - Celular: {3} - Estado: {4}"
+        return texto.format(self._cedula,self._nombre,self._correo,self._celular,self._estado)
             
 class Reserva:
     def __init__(self, fecha,id,localidad,estado,cantidad) -> None:
