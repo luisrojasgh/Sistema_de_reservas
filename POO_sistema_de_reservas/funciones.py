@@ -21,6 +21,8 @@ def mostrarMenuDeUsuario():
     print("2. Consultar Usuario")
     print("3. Actualizar Datos de Usuario")
     print("4. Eliminar Usuario")
+    print("5. Listar Usuarios Activos ")
+    print("6. Listar Todos los Usuarios  ")
     print("0. Salir")
     print("****************-    -*********************")
 
@@ -31,6 +33,7 @@ def mostrarMenuActualizacionUsuario():
     print("2. Actualizar Nombre ")
     print("3. Actualizar Correo ")
     print("4. Actualizar Celular ")
+    print("5. Actualizar Estado ")
     print("0. Salir")
     print("****************-    -*********************")
 
